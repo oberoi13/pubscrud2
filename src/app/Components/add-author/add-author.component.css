@@ -1,0 +1,39 @@
+.example-form {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .mat-slide-toggle {
+    margin-top: 20px; /* Adjust margin between toggle and previous field */
+  }
+  .form{
+    width: 400px;
+    margin-left: 600px;
+  }
+  .NavTitle{
+    margin-left: 650px !important;
+  }
+  /* add-author.component.css */
+.error-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    background-color: #ffe6e6;
+    color: #cc0000;
+    padding: 10px;
+    border: 1px solid #cc0000;
+    text-align: center; /* Center text */
+  }
+  
+  .error-icon {
+    font-size: 20px;
+    color: #cc0000;
+    margin-right: 10px;
+  }
+  
+  .error-message {
+    font-size: 16px;
+    text-align: left; /* Align message text to the left */
+  }
+  

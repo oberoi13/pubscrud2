@@ -1,0 +1,17 @@
+.example-form {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .mat-slide-toggle {
+    margin-top: 20px; /* Adjust margin between toggle and previous field */
+  }
+  .form{
+    width: 400px;
+    margin-left: 600px;
+  }
+  .NavTitle{
+    margin-left: 650px !important;
+  }
+  

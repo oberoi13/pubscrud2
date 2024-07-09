@@ -1,0 +1,46 @@
+
+<mat-toolbar color="primary" >
+  <div class="NavTitle"> <span >Authors</span></div>
+  <button class="NavButton" mat-icon-button (click)="AddAuthorbutton()">
+    <span class="material-icons">
+      add
+      </span>  </button>
+ <!-- <div class="NavTitle"> <span >Authors</span></div> -->
+</mat-toolbar>
+<!-- <h2>List of Authors</h2> -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>FName</th>
+      <th>Lname</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Phone</th>
+      <th>Contract</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let author of AllAuthors">
+      <td>{{ author.au_id }}</td>
+      <td>{{ author.au_fname }}</td>
+      <td>{{ author.au_lname }}</td>
+      <td>{{author.address}}</td>
+      <td>{{author.city}}</td>
+      <td>{{author.state}}</td>
+      <td>{{author.zip}}</td>
+      <td>{{author.phone}}</td>
+      <td>{{author.contract}}</td>
+
+
+      <td class="action-buttons">
+        <button (click)="Edit(author.au_id)">Edit</button>
+        <button class="Del" (click)="deleteAuthor(author.au_id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
