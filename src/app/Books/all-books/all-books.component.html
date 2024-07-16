@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" >
+    <div class="NavTitle"> <span >Authors</span></div>
+    <button class="NavButton" mat-icon-button >
+      <span class="material-icons">
+        add
+        </span>  </button>
+   <!-- <div class="NavTitle"> <span >Authors</span></div> -->
+  </mat-toolbar>
+  <table class="table">
+    <thead>
+        <th>Title ID</th>
+        <th>Title</th>
+        <th>Book Type</th>
+        <th>Price</th>
+        <th>Sales</th>
+        <th>Publication Date</th>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let x of AllBooks">
+            <td>{{x.title_id}}</td>
+            <td>{{x.title}}</td>
+            <td>{{x.type}}</td>
+            <td>{{x.price}}</td>
+            <td>{{x.ytd_sales}}</td>
+            <td>{{x.pubdate}}</td>
+        
+        </tr>
+    </tbody>
+    
+  </table>

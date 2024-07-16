@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, catchError, throwError } from 'rxjs';
 import { Author } from '../Components/table/table.model';
 import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { Books } from '../Books/all-books/all-books.model';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,18 @@ export class DataServiceService {
   async AddAuthor(Data:any ):Promise<Observable<any>>{
   const url =`${this.apiUrl3}`
     return  this.http.post<any>(url, Data,{});
+}
+
+
+
+getBooksData(): Observable<Books[]> {
+  console.log("Fetching authors...");
+  return this.http.get<Books[]>(this.apiUrl).pipe(
+    catchError((error: HttpErrorResponse) => {
+      console.error('Error fetching authors:', error);
+      return throwError('Error fetching authors. Please try again later.'); // Customize error message as needed
+    })
+  );
 }
   // Handle errors
   private handleError(error: any) {

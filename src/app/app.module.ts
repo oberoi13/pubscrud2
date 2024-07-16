@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AddAuthorComponent } from './Components/add-author/add-author.component'; // Import MatButtonModule for mat-raised-button
 import { PhoneDirective } from './directives/PhoneDirective';
 import { AuthIDDirective } from './directives/IdDirective';
+import { AllBooksComponent } from './Books/all-books/all-books.component';
 
 
 
@@ -30,7 +31,8 @@ import { AuthIDDirective } from './directives/IdDirective';
     AppComponent,
     TableComponent,
     EditComponent,
-    AddAuthorComponent
+    AddAuthorComponent,
+    AllBooksComponent
   ],
   imports: [
     BrowserModule,
