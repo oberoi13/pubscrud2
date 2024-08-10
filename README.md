@@ -1,3 +1,9 @@
+Angular app for booksLibrary to ensure complicated relationships between books and authors. This app interacts with node js api to perform CRUD functions to SQL Database
+
+
+
+
+
 # TestAngularRun
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
