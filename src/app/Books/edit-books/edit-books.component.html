@@ -1,0 +1,85 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="goBack()" >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+   <div class="NavTitle"><span >Add Book</span></div>
+  </mat-toolbar>
+
+  <div class="form"><form class="example-form" #exampleForm="ngForm" (ngSubmit)="onSave()">
+    <!-- <label>Authorid</label> -->
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Author ID</mat-label>
+      <input matInput [(ngModel)]="SelectedAuthor.au_id" #Authid="ngModel"   name="Authorid" [minlength]="9" [maxLength]="9"  [required] FormatAuthID >
+   <mat-error *ngIf="Authid.invalid">
+    Id must be in this format: 000-00-0000
+   </mat-error>
+    </mat-form-field> -->
+    <mat-form-field class="Spacetop" appearance="fill">
+        <mat-label >Book ID</mat-label>
+        <input matInput  [(ngModel)]="selectedBook.title_id" name="id" #id="ngModel"  readonly  > 
+        </mat-form-field>
+        <div>
+            <label>Authors</label>
+            <button  class="Add" (click)="openAddAuthorDialog(selectedBook.title_id)">Add Author</button>
+        </div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let event of Authors">
+           
+            <td>{{ event.au_fname }}</td>
+            <td>{{event.au_lname}}</td>
+            <td><button class="Del"(click)="RemoveAuthor(event.au_id,selectedBook.title_id)">Remove</button></td>
+            
+            
+        </tr>
+    </tbody>
+</table>
+
+
+
+<mat-form-field class="Spacetop" appearance="fill">
+<mat-label >Title</mat-label>
+    <input matInput  [(ngModel)]="selectedBook.title" name="Title" #id="ngModel"  [required]  > 
+    </mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Book Type</mat-label>
+    <input matInput  [(ngModel)]="selectedBook.type" name="Type" #id="ngModel"  [required]  > 
+    </mat-form-field>
+    
+   
+    <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput  [(ngModel)]="selectedBook.price" type="number" name="Price" #id="ngModel" [required]  > 
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Sales</mat-label>
+            <input matInput  [(ngModel)]="selectedBook.ytd_sales" type="number" name="Sales" #id="ngModel"    > 
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Publication Date</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedBook.pubdate" name="pubDate" #pubDate="ngModel">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <button mat-raised-button type="submit">Save</button>
+
+        </form>
+  </div>
+
+
+
+
+  <!--<td>{{x.title_id}}Done</td>
+            <td>{{x.title}}</td>
+            <td>{{x.type}} </td>
+            <td>{{x?.price ? x.price:0}}</td>
+            <td>{{x.ytd_sales}}</td>
+            <td>{{x.pubdate}}</td>  -->

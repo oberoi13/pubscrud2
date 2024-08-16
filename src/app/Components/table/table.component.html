@@ -1,15 +1,20 @@
 
 <mat-toolbar color="primary" >
   <div class="NavTitle"> <span >Authors</span></div>
-  <button mat-icon-button routerLinkActive="/Books" ></button>
-  <button class="NavButton" mat-icon-button (click)="AddAuthorbutton()">
+  <div class="NavButton">
+
+ 
+  <button mat-icon-button  (click)="GoToBooks()" ><mat-icon>
+    import_contacts</mat-icon></button>
+  <button  mat-icon-button (click)="AddAuthorbutton()">
     <span class="material-icons">
       add
-      </span>  </button>
+      </span>  
+    </button> </div>
  <!-- <div class="NavTitle"> <span >Authors</span></div> -->
 </mat-toolbar>
 <!-- <h2>List of Authors</h2> -->
-
+<!-- 
 <table class="table">
   <thead>
     <tr>
@@ -44,4 +49,67 @@
       </td>
     </tr>
   </tbody>
+</table> -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="au_id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let author">{{ author.au_id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="au_fname">
+    <th mat-header-cell *matHeaderCellDef>Full Name</th>
+    <td mat-cell *matCellDef="let author">{{ author.au_fname }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="au_lname">
+    <th mat-header-cell *matHeaderCellDef>Last Name</th>
+    <td mat-cell *matCellDef="let author">{{ author.au_lname }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef>Address</th>
+    <td mat-cell *matCellDef="let author">{{ author.address }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="city">
+    <th mat-header-cell *matHeaderCellDef>City</th>
+    <td mat-cell *matCellDef="let author">{{ author.city }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="state">
+    <th mat-header-cell *matHeaderCellDef>State</th>
+    <td mat-cell *matCellDef="let author">{{ author.state }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="zip">
+    <th mat-header-cell *matHeaderCellDef>Zip</th>
+    <td mat-cell *matCellDef="let author">{{ author.zip }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef>Phone</th>
+    <td mat-cell *matCellDef="let author">{{ author.phone }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="contract">
+    <th mat-header-cell *matHeaderCellDef>Contract</th>
+    <td mat-cell *matCellDef="let author">{{ author.contract }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td  mat-cell *matCellDef="let author">
+      <div class="action-buttons">
+      <button (click)="Edit(author.au_id)">Edit</button>
+      <button class="Del" (click)="deleteAuthor(author.au_id)">Delete</button>
+    </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
 </table>
+
+<mat-paginator [pageSizeOptions]="[10, 20, 50]" [pageSize]="20" showFirstLastButtons></mat-paginator>

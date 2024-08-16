@@ -1,0 +1,28 @@
+<!-- add-author-dialog.component.html -->
+<h1 mat-dialog-title>Add Author</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Search Authors</mat-label>
+    <input matInput [(ngModel)]="searchText" placeholder="Enter author name">
+  </mat-form-field>
+  <table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let event of filteredAuthors">
+           
+            <td>{{ event.au_fname }}</td>
+            <td>{{event.au_lname}}</td>
+            <td><button mat-button class="Del" (click)="AddAuthor(event.au_id)">Add</button></td>
+            
+            
+        </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,100 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="goBack()" >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+   <div class="NavTitle"><span >Add Book</span></div>
+  </mat-toolbar>
+  <div class="accordion-container">
+  <mat-accordion >
+    <mat-expansion-panel [(expanded)]="firstPanelOpen">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          First Accordion
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <div class="form"><form class="example-form" #exampleForm="ngForm" (ngSubmit)="onSave()">
+        <!-- <label>Authorid</label> -->
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Author ID</mat-label>
+          <input matInput [(ngModel)]="SelectedAuthor.au_id" #Authid="ngModel"   name="Authorid" [minlength]="9" [maxLength]="9"  [required] FormatAuthID >
+       <mat-error *ngIf="Authid.invalid">
+        Id must be in this format: 000-00-0000
+       </mat-error>
+        </mat-form-field> -->
+        <mat-form-field class="Spacetop" appearance="fill">
+            <mat-label >Book ID</mat-label>
+            <input matInput  [(ngModel)]="selectedBook.title_id" required  name="id" #id="ngModel"    > 
+          <mat-error *ngIf="id.errors">Title id is required</mat-error>  
+          </mat-form-field>
+
+    <mat-form-field class="Spacetop" appearance="fill">
+    <mat-label >Title</mat-label>
+        <input matInput  [(ngModel)]="selectedBook.title" name="Title" #Title="ngModel"  required > 
+        <mat-error *ngIf="Title.errors">Title is required</mat-error>  
+        </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Book Type</mat-label>
+        <input matInput  [(ngModel)]="selectedBook.type" name="Type" #type="ngModel"  required  > 
+        <mat-error *ngIf="type.errors">Book Type is required</mat-error>  
+        </mat-form-field>
+        
+       
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput  [(ngModel)]="selectedBook.price" type="number" name="Price" #id="ngModel"   > 
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Sales</mat-label>
+                <input matInput  [(ngModel)]="selectedBook.ytd_sales" type="number" name="Sales" #id="ngModel"    > 
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Publication Date</mat-label>
+                <input matInput [matDatepicker]="picker" required [(ngModel)]="selectedBook.pubdate" name="pubDate" #pubDate="ngModel">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="pubDate.errors">Date is required</mat-error>  
+              </mat-form-field>
+    
+              <button mat-raised-button [disabled]="id.errors && pubDate.errors " type="submit">Save</button>
+
+            </form>
+      </div>
+    </mat-expansion-panel>
+    <!-- [disabled]="!isFirstAccordionCompleted"  -->
+    <mat-expansion-panel [expanded]="secondPanelOpen" [disabled]="!isFirstAccordionCompleted" (opened)="checkFirstAccordionCompletion()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+Select an Author to add
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div mat-dialog-content>
+        <mat-form-field>
+          <mat-label>Search Authors</mat-label>
+          <input matInput [(ngModel)]="searchText" placeholder="Enter author name">
+        </mat-form-field>
+        <table>
+          <thead>
+              <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Actions</th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let event of filteredAuthors">
+                 
+                  <td>{{ event.au_fname }}</td>
+                  <td>{{event.au_lname}}</td>
+                  <td><button mat-button class="Del" (click)="AddAuthor(event.au_id)"  [disabled]="isAuthorAdded(event.au_id)"> {{isAuthorAdded(event.au_id) ? 'Added' : 'Add' }}</button>
+                  </td>
+                  
+                  
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

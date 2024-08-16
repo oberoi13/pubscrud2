@@ -1,0 +1,28 @@
+/* your-page.component.css */
+.accordion-container {
+    margin: 20px;
+    
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  mat-expansion-panel {
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  mat-expansion-panel-header {
+    background-color: #e0e0e0;
+  }
+  
+  mat-expansion-panel-header mat-panel-title {
+    font-weight: bold;
+  }

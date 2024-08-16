@@ -9,5 +9,5 @@ export interface Books{
     ytd_sales:string
     notes:string
     pubdate:string
-
+    
 }
