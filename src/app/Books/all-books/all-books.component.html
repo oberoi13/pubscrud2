@@ -1,0 +1,47 @@
+<mat-toolbar color="primary" >
+  <button mat-icon-button (click)="goBack()" >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+    <div class="NavTitle"> <span >Books</span></div>
+    <button class="NavButton" mat-icon-button (click)="Addbook()">
+      <span class="material-icons">
+        add
+        </span>  </button>
+   <!-- <div class="NavTitle"> <span >Authors</span></div> -->
+  </mat-toolbar>
+  <table class="table">
+    <thead>
+        <th>Title ID</th>
+        <th>Title</th>
+        <th>Book Type</th>
+        <th>Price</th>
+        <th>Sales</th>
+        <th>Publication Date</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of AllBooks">
+            <td>{{x.title_id}}</td>
+            <td>{{x.title}}</td>
+            <td>{{x.type}} </td>
+            <td>{{x?.price ? x.price:0}}</td>
+            <td>{{x.ytd_sales}}</td>
+            <td>{{x.pubdate}}</td>  
+            <td class="action-buttons">
+              <button (click)="Edit(x.title_id)">Edit</button>
+              <button class="Del" (click)="DeleteBook(x.title_id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+    
+  </table>
+  <ng-template #confirmDialog>
+    <h1 mat-dialog-title>Confirm</h1>
+    <div mat-dialog-content>
+      <p>Are you sure you want to delete this book?</p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">No</button>
+      <button mat-button (click)="onYesClick()" cdkFocusInitial>Yes</button>
+    </div>
+  </ng-template>

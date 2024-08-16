@@ -1,0 +1,91 @@
+.example-form {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .mat-slide-toggle {
+    margin-top: 20px; /* Adjust margin between toggle and previous field */
+  }
+  .form{
+    width: 400px;
+    margin-left: 600px;
+  }
+  .NavTitle{
+    margin-left: 650px !important;
+  }
+  /* add-author.component.css */
+.error-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    background-color: #ffe6e6;
+    color: #cc0000;
+    padding: 10px;
+    border: 1px solid #cc0000;
+    text-align: center; /* Center text */
+  }
+  
+  .error-icon {
+    font-size: 20px;
+    color: #cc0000;
+    margin-right: 10px;
+  }
+  
+  .error-message {
+    font-size: 16px;
+    text-align: left; /* Align message text to the left */
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background-color: #f2f2f2;
+}
+
+.table th,
+.table td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table .table-bordered th,
+.table .table-bordered td {
+    border: 1px solid #ddd;
+}
+
+.table .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+.Del{
+    background-color: rgb(207, 5, 5) !important;
+    color: white;
+}
+ /* .action-buttons {
+    
+    display: flex;
+    justify-content: space-around;
+  }
+   */
+    .Add{
+        background-color:  #007bff;
+        color: white;
+        margin-left:250px;
+        margin-bottom: 10px;
+   }
+   .Spacetop{
+    margin-top: 15px !important;
+   }
